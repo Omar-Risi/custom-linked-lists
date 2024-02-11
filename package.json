@@ -1,0 +1,21 @@
+{
+  "name": "custom-linked-lists",
+  "version": "1.0.0",
+  "description": "",
+  "type":"module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Omar-Risi/custom-linked-lists.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Omar-Risi/custom-linked-lists/issues"
+  },
+  "homepage": "https://github.com/Omar-Risi/custom-linked-lists#readme"
+}
