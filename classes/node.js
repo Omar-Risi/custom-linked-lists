@@ -6,7 +6,7 @@ export default class Node {
   }
 
   toString() {
-    return {value: this.value, pointer: this.pointer};
+    return `{value:${this.value}, pointer:${this.pointer}}`;
   }
 
   setPointer(node_pointer) {

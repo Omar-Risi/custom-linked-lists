@@ -1,5 +1,4 @@
 import Node from "./node.js";
-
 export default class List {
 
   #nodes = [];
@@ -8,21 +7,25 @@ export default class List {
 
   }
 
+  length() {
+    return this.#nodes.length;
+  }
+  
   // push node in the first position of list
   append(value) {
 
     let node = new Node(value, null);
 
     // if first node to push
-    if (this.#nodes[this.#nodes.length-1] === undefined) {
+    if (this.#nodes[this.length()-1] === undefined) {
       this.#nodes.push(node);
-      return this.#nodes[this.#nodes.length-1];
+      return this.#nodes[this.length()-1];
     }
 
     // if not first node to push
-    this.#nodes[this.#nodes.length-1].setPointer(this.#nodes.length);
+    this.#nodes[this.length()-1].setPointer(this.length());
     this.#nodes.push(node);
-    return this.#nodes[this.#nodes.length-1]
+    return this.#nodes[this.length()-1]
   }
 
   // push node in the last position of list
@@ -67,6 +70,12 @@ export default class List {
 
   // shows list in this format (value_1) -> (value_2) -> null
   toString() {
-
-  } 
+    let resultString  = "";
+    for(let i = 0; i < this.length(); i++) {
+      resultString += `${this.#nodes[i].toString()}`;
+      if (i !== this.length()-1) 
+        resultString += " -> "
+    } 
+    return resultString;
+  }
 }
