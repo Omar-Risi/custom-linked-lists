@@ -9,8 +9,8 @@
 import List from "./classes/list.js"
 
 let dogsList = new List();
-dogsList.push("Dog_1");
-dogsList.push("Dog_2");
-dogsList.push("Dog_3");
+dogsList.append("Dog_1");
+dogsList.append("Dog_2");
+dogsList.append("Dog_3");
 
 console.log(dogsList.toString())
