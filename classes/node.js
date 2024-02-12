@@ -5,6 +5,10 @@ export default class Node {
     this.pointer = node_pointer;
   }
 
+  toString() {
+    return {value: this.value, pointer: this.pointer};
+  }
+
   setPointer(node_pointer) {
     this.pointer = node_pointer;
     return this.pointer;
@@ -15,3 +19,4 @@ export default class Node {
     return this.value;
   }
 }
+

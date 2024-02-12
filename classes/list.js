@@ -1,19 +1,33 @@
+import Node from "./node.js";
+
 export default class List {
 
   #nodes = [];
   
-  #setPositions() {
+  #resetPositions() {
 
   }
 
   // push node in the first position of list
   append(value) {
 
+    let node = new Node(value, null);
+
+    // if first node to push
+    if (this.#nodes[this.#nodes.length-1] === undefined) {
+      this.#nodes.push(node);
+      return this.#nodes[this.#nodes.length-1];
+    }
+
+    // if not first node to push
+    this.#nodes[this.#nodes.length-1].setPointer(this.#nodes.length);
+    this.#nodes.push(node);
+    return this.#nodes[this.#nodes.length-1]
   }
 
   // push node in the last position of list
   prepend(value) {
-
+    
   }
 
   // return length of the list
