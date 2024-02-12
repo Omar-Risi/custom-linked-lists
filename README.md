@@ -16,7 +16,6 @@ adds a new node in last position in the list.
 
 ```
 list.append("value_1"); //returns the new node
-
 ```
 ### prepend(value)
 adds a new node in the first position in the list 
