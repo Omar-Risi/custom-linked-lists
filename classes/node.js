@@ -18,5 +18,9 @@ export default class Node {
     this.value = node_value;
     return this.value;
   }
+
+  getValue() {
+    return this.value;
+  }
 }
 
