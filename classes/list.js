@@ -5,47 +5,65 @@ export default class List {
   
   #resetPositions() {
 
+    for (let i = 0; i < this.size(); i++)
+    {
+      this.#nodes[i].setPointer(i+1);
+      if (i+1 === this.size())
+        this.#nodes[i].setPointer(null);
+    }
+
+    return this.#nodes;
   }
 
-  length() {
+ 
+  // return length of the list
+  size() {
     return this.#nodes.length;
   }
-  
+
   // push node in the first position of list
   append(value) {
 
     let node = new Node(value, null);
 
     // if first node to push
-    if (this.#nodes[this.length()-1] === undefined) {
+    if (this.#nodes[this.size()-1] === undefined) {
       this.#nodes.push(node);
-      return this.#nodes[this.length()-1];
+      return this.#nodes[this.size()-1];
     }
 
     // if not first node to push
-    this.#nodes[this.length()-1].setPointer(this.length());
+    this.#nodes[this.size()-1].setPointer(this.size());
     this.#nodes.push(node);
-    return this.#nodes[this.length()-1]
+    return this.#nodes[this.size()-1]
   }
 
   // push node in the last position of list
   prepend(value) {
     
-  }
+    let node = new Node(value, 1);
 
-  // return length of the list
-  size() {
+    // if first node to push
+    if (this.#nodes[this.size()-1] === undefined) {
+      this.#nodes.push(node);
+      return this.#nodes[this.size()-1]
+    }
 
+    // if not first node to push
+    this.#nodes.splice(0,0,node);
+    this.#resetPositions();
+    
+    return this.#nodes[0];
   }
 
   // return first node in the list
   head() {
-
+    return this.#nodes[0];
   }
 
   // return last node in the list
   tail() {
-
+    return this.#nodes[this.size()-1];
   }
 
   // return node at index
@@ -71,11 +89,12 @@ export default class List {
   // shows list in this format (value_1) -> (value_2) -> null
   toString() {
     let resultString  = "";
-    for(let i = 0; i < this.length(); i++) {
+    for(let i = 0; i < this.size(); i++) {
       resultString += `${this.#nodes[i].toString()}`;
-      if (i !== this.length()-1) 
+      if (i !== this.size()-1) 
         resultString += " -> "
     } 
     return resultString;
   }
 }
+
