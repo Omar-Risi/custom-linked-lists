@@ -68,22 +68,48 @@ export default class List {
 
   // return node at index
   at(index) {
-
+    return this.#nodes[index];
   }
 
   // removes last node from list
   pop() {
-
+    this.#nodes.pop();
+    this.#nodes[this.size()-1].setPointer(null);
+    return this.toString();
   }
 
-  // returns true if value is in one of the nodes
+   // returns true if value is in one of the nodes
    contains(value) {
+    let found = false;
+    for (let i = 0; i < this.size(); i++) {
 
+      if (this.#nodes[i].getValue() === value)
+      {
+        found = true; 
+        break;
+      }
+    }
+    return found;
   }
 
   // return index of node containing value
   find(value) {
+    
+    var index = undefined; 
 
+    for (let i = 0; i < this.size(); i++) {
+      
+      if (this.#nodes[i].getValue() === value)
+      {
+        index = i;
+        break;
+      }
+    }
+
+    if (index  === undefined)
+      return "not found!";
+
+    return index;
   }
 
   // shows list in this format (value_1) -> (value_2) -> null
